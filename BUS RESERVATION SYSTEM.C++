@@ -113,6 +113,16 @@ bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int
     return false;
 }
 cout << (success ? "Reservation successful!" : "Reservation failed.") << endl;
+void BusReservationSystem::viewReservedSeats(const vector<Bus>& buses, string busID) {
+    for (const auto& bus : buses) {
+        if (bus.busID == busID) {
+            cout << "Bus ID: " << bus.busID 
+                 << ", Reserved Seats: " << bus.totalSeats - bus.availableSeats << endl;
+            return;
+        }
+    }
+    cout << "Bus ID not found." << endl;
+}
 
 
 
