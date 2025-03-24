@@ -131,6 +131,14 @@ void BusReservationSystem::displayMenu() {
     cout << "4. Exit\n";
     cout << "Enter your choice: ";
 }
+bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int seats) {
+    if (seats <= 0) {
+        cout << "Invalid number of seats." << endl;
+        return false;
+    }
+    // Previous code...
+}
+
 
 
 
