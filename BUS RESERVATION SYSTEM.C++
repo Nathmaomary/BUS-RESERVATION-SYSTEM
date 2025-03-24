@@ -96,6 +96,23 @@ int main() {
     }
     return 0;
 }
+bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int seats) {
+    for (auto& bus : buses) {
+        if (bus.busID == busID) {
+            if (bus.availableSeats >= seats) {
+                bus.availableSeats -= seats;
+                cout << "Reservation successful! Seats booked: " << seats << endl;
+                return true;
+            } else {
+                cout << "Not enough available seats." << endl;
+                return false;
+            }
+        }
+    }
+    cout << "Bus ID not found." << endl;
+    return false;
+}
+
 
 
 
