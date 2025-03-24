@@ -138,6 +138,19 @@ bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int
     }
     // Previous code...
 }
+class Bus {
+public:
+    string busID;
+    string source;
+    string destination;
+    int totalSeats;
+    int availableSeats;
+    float pricePerSeat;
+
+    Bus(string id, string src, string dest, int total, float price) 
+        : busID(id), source(src), destination(dest), totalSeats(total), availableSeats(total), pricePerSeat(price) {}
+};
+
 
 
 
