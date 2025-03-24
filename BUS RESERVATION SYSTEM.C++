@@ -124,6 +124,15 @@ void BusReservationSystem::viewReservedSeats(const vector<Bus>& buses, string bu
     cout << "Bus ID not found." << endl;
 }
 
+void BusReservationSystem::displayMenu() {
+    cout << "\n1. View available buses\n";
+    cout << "2. Make a reservation\n";
+    cout << "3. View reserved seats\n";
+    cout << "4. Exit\n";
+    cout << "Enter your choice: ";
+}
+
+
 
 
 
