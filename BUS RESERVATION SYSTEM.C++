@@ -189,6 +189,97 @@ cout << "Bus ID: " << bus.busID << endl;
 cout << "Total Seats Reserved: " << seats << endl;
 cout << "Total Cost: $" << seats * bus.pricePerSeat << endl;
 
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Bus {
+public:
+    string busID;
+    string source;
+    string destination;
+    int totalSeats;
+    int availableSeats;
+    float pricePerSeat;
+
+    Bus(string id, string src, string dest, int total, float price) 
+        : busID(id), source(src), destination(dest), totalSeats(total), availableSeats(total), pricePerSeat(price) {}
+};
+
+class BusReservationSystem {
+public:
+    void displayWelcomeMessage();
+    void displayMenu();
+    void displayBuses(const vector<Bus>& buses);
+    void initializeBuses(vector<Bus>& buses);
+    bool makeReservation(vector<Bus>& buses, string busID, int seats);
+    void viewReservedSeats(const vector<Bus>& buses, string busID);
+    int getInput();
+    bool confirmExit();
+};
+
+void BusReservationSystem::displayWelcomeMessage() {
+    cout << "Welcome to the Bus Reservation System!" << endl;
+}
+
+void BusReservationSystem::displayMenu() {
+    cout << "\n1. View available buses\n";
+    cout << "2. Make a reservation\n";
+    cout << "3. View reserved seats\n";
+    cout << "4. Exit\n";
+    cout << "Enter your choice: ";
+}
+
+int BusReservationSystem::getInput() {
+    int choice;
+    while (!(cin >> choice)) {
+        cin.clear();
+        cin.ignore(123, '\n');
+        cout << "Invalid input. Please try again: ";
+    }
+    return choice;
+}
+
+void BusReservationSystem::initializeBuses(vector<Bus>& buses) {
+    buses.push_back(Bus("B001", "New York", "Boston", 40, 50.0));
+    buses.push_back(Bus("B002", "Los Angeles", "San Francisco", 50, 45.0));
+    buses.push_back(Bus("B003", "Chicago", "Detroit", 30, 55.0));
+}
+
+void BusReservationSystem::displayBuses(const vector<Bus>& buses) {
+    cout << "Available Buses: " << endl;
+    for (const auto& bus : buses) {
+        cout << "Bus ID: " << bus.busID << ", Source: " << bus.source 
+             << ", Destination: " << bus.destination 
+             << ", Seats Available: " << bus.availableSeats 
+             << ", Price per Seat: $" << bus.pricePerSeat << endl;
+    }
+}
+
+bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int seats) {
+    for (auto& bus : buses) {
+        if (bus.busID == busID && bus.availableSeats >= seats) {
+            bus.availableSeats -= seats;
+            float totalCost = seats * bus.pricePerSeat;
+            cout << "Reservation successful! Seats booked: " << seats << endl;
+            cout << "Total cost: $" << totalCost << endl;
+            return true;
+        }
+    }
+    cout << "Reservation failed! Not enough available seats or invalid Bus ID." << endl;
+    return false;
+}
+
+void BusReservationSystem::viewReservedSeats(const vector<Bus>& buses, string busID) {
+    for (const auto& bus : buses) {
+        if (bus.busID == busID) {
+            cout << "Bus ID: " << bus.busID 
+                 << ", Reserved Seats: " << bus.totalSeats - bus.availableSeats << endl;
+            return;
+        }
+    }
 
 
 
