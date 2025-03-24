@@ -42,6 +42,18 @@ void BusReservationSystem::initializeBuses(vector<Bus>& buses) {
     buses.push_back(Bus("B002", "Los Angeles", "San Francisco", 50));
     buses.push_back(Bus("B003", "Chicago", "Detroit", 30));
 }
+bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int seats) {
+    for (auto& bus : buses) {
+        if (bus.busID == busID && bus.availableSeats >= seats) {
+            bus.availableSeats -= seats;
+            cout << "Reservation successful! Seats booked: " << seats << endl;
+            return true;
+        }
+    }
+    cout << "Reservation failed! Not enough available seats." << endl;
+    return false;
+}
+
 
 
 
