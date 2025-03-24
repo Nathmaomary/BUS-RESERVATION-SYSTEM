@@ -176,6 +176,13 @@ if (seats > 0) {
     cout << "Total cost for " << seats << " seats: $" << seats * bus.pricePerSeat << endl;
     // Proceed with reservation...
 }
+bool confirmExit() {
+    char choice;
+    cout << "Are you sure you want to exit? (y/n): ";
+    cin >> choice;
+    return (choice == 'y' || choice == 'Y');
+}
+
 
 
 
