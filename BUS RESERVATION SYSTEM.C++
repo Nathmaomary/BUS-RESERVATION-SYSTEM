@@ -54,6 +54,14 @@ bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int
     return false;
 }
 
+void BusReservationSystem::displayMenu() {
+    cout << "\n1. View available buses\n";
+    cout << "2. Make a reservation\n";
+    cout << "3. Exit\n";
+    cout << "Enter your choice: ";
+}
+
+
 
 
 
