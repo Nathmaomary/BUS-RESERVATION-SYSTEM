@@ -29,4 +29,13 @@ public:
     Bus(string id, string src, string dest, int total) 
         : busID(id), source(src), destination(dest), totalSeats(total), availableSeats(total) {}
 };
+void BusReservationSystem::displayBuses(const vector<Bus>& buses) {
+    cout << "Available Buses: " << endl;
+    for (const auto& bus : buses) {
+        cout << "Bus ID: " << bus.busID << ", Source: " << bus.source 
+             << ", Destination: " << bus.destination 
+             << ", Seats Available: " << bus.availableSeats << endl;
+    }
+}
+
 
