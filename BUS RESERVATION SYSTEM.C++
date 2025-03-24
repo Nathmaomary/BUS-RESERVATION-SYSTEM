@@ -112,6 +112,8 @@ bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int
     cout << "Bus ID not found." << endl;
     return false;
 }
+cout << (success ? "Reservation successful!" : "Reservation failed.") << endl;
+
 
 
 
