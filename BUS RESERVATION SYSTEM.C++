@@ -60,6 +60,16 @@ void BusReservationSystem::displayMenu() {
     cout << "3. Exit\n";
     cout << "Enter your choice: ";
 }
+int BusReservationSystem::getInput() {
+    int choice;
+    while (!(cin >> choice)) {
+        cin.clear();
+        cin.ignore(123, '\n');
+        cout << "Invalid input. Please try again: ";
+    }
+    return choice;
+}
+
 
 
 
