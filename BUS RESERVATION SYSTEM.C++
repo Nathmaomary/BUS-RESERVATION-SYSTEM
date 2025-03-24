@@ -182,6 +182,13 @@ bool confirmExit() {
     cin >> choice;
     return (choice == 'y' || choice == 'Y');
 }
+cout << "------------------------------" << endl;
+cout << "Reservation Summary" << endl;
+cout << "------------------------------" << endl;
+cout << "Bus ID: " << bus.busID << endl;
+cout << "Total Seats Reserved: " << seats << endl;
+cout << "Total Cost: $" << seats * bus.pricePerSeat << endl;
+
 
 
 
