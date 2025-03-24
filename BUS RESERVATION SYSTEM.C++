@@ -159,6 +159,19 @@ void BusReservationSystem::displayBuses(const vector<Bus>& buses) {
              << ", Price per Seat: $" << bus.pricePerSeat << endl;
     }
 }
+bool BusReservationSystem::makeReservation(vector<Bus>& buses, string busID, int seats) {
+    for (auto& bus : buses) {
+        if (bus.busID == busID && bus.availableSeats >= seats) {
+            bus.availableSeats -= seats;
+            float totalCost = seats * bus.pricePerSeat;
+            cout << "Total cost: $" << totalCost << endl;
+            return true;
+        }
+    }
+    cout << "Reservation failed! Not enough available seats." << endl;
+    return false;
+}
+
 
 
 
