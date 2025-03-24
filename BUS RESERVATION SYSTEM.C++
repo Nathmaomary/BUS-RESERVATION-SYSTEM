@@ -37,5 +37,11 @@ void BusReservationSystem::displayBuses(const vector<Bus>& buses) {
              << ", Seats Available: " << bus.availableSeats << endl;
     }
 }
+void BusReservationSystem::initializeBuses(vector<Bus>& buses) {
+    buses.push_back(Bus("B001", "New York", "Boston", 40));
+    buses.push_back(Bus("B002", "Los Angeles", "San Francisco", 50));
+    buses.push_back(Bus("B003", "Chicago", "Detroit", 30));
+}
+
 
 
