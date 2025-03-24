@@ -70,6 +70,34 @@ int BusReservationSystem::getInput() {
     return choice;
 }
 
+int main() {
+    BusReservationSystem system;
+    vector<Bus> buses;
+    system.initializeBuses(buses);
+
+    while (true) {
+        system.displayMenu();
+        int choice = system.getInput();
+        if (choice == 1) {
+            system.displayBuses(buses);
+        } else if (choice == 2) {
+            string busID;
+            int seats;
+            cout << "Enter Bus ID: ";
+            cin >> busID;
+            cout << "Enter number of seats to reserve: ";
+            cin >> seats;
+            system.makeReservation(buses, busID, seats);
+        } else if (choice == 3) {
+            break;
+        } else {
+            cout << "Invalid choice. Please try again." << endl;
+        }
+    }
+    return 0;
+}
+
+
 
 
 
